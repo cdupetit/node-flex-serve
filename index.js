@@ -50,7 +50,10 @@ module.exports = (opts) => {
     })
     .catch((err) => {
       // eslint-disable-next-line no-console
-      console.log('An error was thrown while starting node-flex-serve.\n  ', err);
+      console.log(
+        'An error was thrown while starting node-flex-serve.\n  ',
+        err
+      );
       throw err;
     });
 };

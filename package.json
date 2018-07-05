@@ -1,6 +1,6 @@
 {
   "name": "node-flex-serve",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A lean, modern, and flexible node server",
   "license": "MIT",
   "author": "Cyril Dupetit (cyril.dupetit@wanadoo.fr)",
