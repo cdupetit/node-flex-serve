@@ -1,0 +1,140 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "context": {
+      "$id": "/properties/context",
+      "type": "string",
+      "title": "The Context Schema",
+      "description": "The base directory (absolute path!) for resolving the `content` option.",
+      "absolutePath": true
+    },
+    "host": {
+      "$id": "/properties/host",
+      "type": "string",
+      "title": "The Host Schema",
+      "description": "The host the app should bind to.",
+      "default": "localhost"
+    },
+    "http2": {
+      "$id": "/properties/http2",
+      "type": "boolean",
+      "title": "The Http2 Schema",
+      "description": "Instruct the server to use HTTP2.",
+      "default": false
+    },
+    "https": {
+      "$id": "/properties/https",
+      "type": ["null", "object"],
+      "title": "The Https Schema",
+      "additionalProperties": false,
+      "default": null,
+      "properties": {
+        "cert": {
+          "$id": "/properties/https/properties/cert",
+          "type": "string",
+          "title": "The Cert Schema",
+          "description": "Specify a cert to enable https. Must be paired with a key."
+        },
+        "key": {
+          "$id": "/properties/https/properties/key",
+          "type": "string",
+          "title": "The Key Schema",
+          "description": "Specify a key to enable https. Must be paired with a cert."
+        },
+        "pass": {
+          "$id": "/properties/https/properties/pass",
+          "type": "string",
+          "title": "The Pass Schema",
+          "description": "Specify a passphrase to enable https. Must be paired with a pfx file."
+        },
+        "pfx": {
+          "$id": "/properties/https/properties/pfx",
+          "type": "string",
+          "title": "The Pfx Schema",
+          "description": "Specify a pfx file to enable https. Must be paired with a passphrase."
+        }
+      }
+    },
+    "logLevel": {
+      "$id": "/properties/logLevel",
+      "type": "string",
+      "enum": ["trace", "debug", "info", "warn", "error", "silent"],
+      "title": "The LogLevel Schema",
+      "description": "The host the app should bind to.",
+      "default": "info"
+    },
+    "logTime": {
+      "$id": "/properties/logTime",
+      "type": "boolean",
+      "title": "The logTime Schema",
+      "description": "Instruct the logger for node-flex-serve and dependencies to display a timestamp.",
+      "default": false
+    },
+    "open": {
+      "$id": "/properties/open",
+      "type": ["boolean", "object"],
+      "additionalProperties": false,
+      "default": false,
+      "title": "The Open Schema",
+      "description": "Instruct the app to open in the default browser.",
+      "properties": {
+        "app": {
+          "$id": "/properties/open/properties/app",
+          "type": "array",
+          "title": "The App Schema",
+          "description": "Specify a cert to enable https. Must be paired with a key.",
+          "items": {
+            "description": "string or array of strings",
+            "anyOf": [
+              {
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "items": {
+                  "description": "A non-empty string",
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            ]
+          }
+        },
+        "path": {
+          "$id": "/properties/open/properties/path",
+          "type": "string",
+          "title": "The Path Schema",
+          "description": "The path with the app a browser should open to."
+        }
+      }
+    },
+    "port": {
+      "$id": "/properties/port",
+      "type": "integer",
+      "title": "The Port Schema",
+      "description": "The port the app should listen on.",
+      "default": 8080
+    },
+    "addons": {
+      "$id": "/properties/addons",
+      "type": "object",
+      "title": "The AddOns Schema",
+      "description": "Options for the AddOns."
+    },
+    "on": {
+      "$id": "/properties/on",
+      "type": "object",
+      "title": "The On Schema",
+      "description": "Functions for catch bus event."
+    },
+    "serve": {
+      "$id": "/properties/serve",
+      "type": "object",
+      "title": "The Serve Schema",
+      "description": "Options for Nested Configuration."
+    }
+  }
+}
